@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Note</title>
+</head>
+<body>
+    <h1>Shared Note Content</h1>
+    <div id="noteContent"></div>
+    
+    <script>
+        // Extract the note ID from the URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var noteId = urlParams.get('id');
+        
+        // Fetch the note content using the note ID (this logic depends on your implementation)
+        // For demonstration purposes, we'll simply display the note ID
+        document.getElementById('noteContent').innerText = 'Note ID: ' + noteId;
+    </script>
+</body>
+</html>
