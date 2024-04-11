@@ -2,20 +2,22 @@
 
 document.getElementById('generateLinkBtn').addEventListener('click', function() {
     var noteContent = document.getElementById('noteTextarea').value;
-    var encryptionOption = confirm("Do you want to encrypt the link?");
-    var encryptedLink = encryptionOption ? encrypt(noteContent) : noteContent;
-    var shareableLink = generateUniqueLink(encryptedLink);
-    alert("Your shareable link is: " + shareableLink);
+    
+    // Generate a unique ID for the note
+    var noteId = generateUUID();
+    
+    // Construct the shareable link with the noteId
+    var shareableLink = window.location.origin + '/note.html?id=' + noteId;
+    
+    // Display the shareable link to the user
+    document.getElementById('shareLink').innerText = shareableLink;
 });
 
-function generateUniqueLink(content) {
-    // Implement logic to generate a unique link
-    // For demonstration purposes, we'll generate a random link
-    return 'https://yourdomain.com/' + Math.random().toString(36).substring(2, 15);
-}
-
-function encrypt(content) {
-    // Implement encryption logic
-    // For demonstration purposes, we'll return the content as encrypted
-    return "Encrypted:" + content;
+// Function to generate a UUID (Universally Unique Identifier)
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+            v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
 }
