@@ -1,1 +1,14 @@
-
+{
+  "name": "okutagon's-note-sharing-website",
+  "version": "1.0.0",
+  "description": "A website for sharing notes with others",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1", // Express.js for handling server logic
+    "node-schedule": "^2.0.0" // Node.js package for scheduling tasks
+    // Add other dependencies as needed (e.g., database libraries)
+  }
+}
